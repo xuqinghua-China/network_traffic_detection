@@ -1,6 +1,7 @@
 # network_traffice_detection
 
 In this project we are using ISCX 2012 datasets for classification of network traffic.
+
 Plan:
 1. Download the datasets from https://www.unb.ca/cic/datasets/ids.html
 2. Convert the single pcap file to multiple pcap files based on flow
