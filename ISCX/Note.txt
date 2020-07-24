@@ -1,0 +1,1 @@
+Each flow is converted into 28 X 28 image to use a imputs
