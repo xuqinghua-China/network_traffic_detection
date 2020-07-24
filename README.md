@@ -1,5 +1,14 @@
 # network_traffice_detection
 
+In the case of Intrusion Detection, NSL-KDD is consider as the standard datasets and have been used by many reseacher for their reseach work. 
+Therefore we also perform the network traffic classification using various range of deep learning model on NSL-KDD.
+The peroformance of model is promising. All the models are uploaded in this repository with proper name.
+
+The NSL-KDD datasets have 41 features but all of the features are not equally important for the prediction. Therefore we have also done some feature engineering jobs which are uploaded under Feature_Engineering folder. We tried different apporach for feature learning. First we performed constant, quasi constant features elimination and than perform feature selection based on corelation coefficient. We have also tried feature selection based on sklearn feature importance method. 
+Instead of selecting the features based on one machine learning feature importnace, we have calculated the feature importance of various model and than compute the average feature importance. We also tried permutation and recursive feature importance technique as well. 
+
+Though NSL-KDD is consider as standard datasets, it is also very true that this a old and label data sets with limited number of features. Therefore we have selected another datasets called ISCX 2012 which contains very high volume of raw data. Our plan is to propose various way to present raw data and apply transfer learning and few-shot techniuque with combination of cnn and lstm model. 
+
 In this project we are using ISCX 2012 datasets for classification of network traffic.
 
 Plan:
