@@ -14,7 +14,21 @@ This page presents an end-to-end network intrusion detector based on HAST-IDS mo
 ### Dataset(ISCX 2012)
 
 - dataset introduction
+
+The ISCX data set was created in 2012 by capturing traffic in an emulated network environment over one week. The authors used a dynamic approach to generate an
+intrusion detection data set with normal as well as malicious network behavior. The 7-day simulation dataset consists of 3 days of attack-free traffic and 4 days of mixed benign and malign traffic. This datasets contins four types of attack, they are HTTP Denial of Service (DoS), Infiltrating the network from inside, Distributed Denial of Service (DDoS), and Brute Force SSH. The simulation was created to simulate and mimic user behaviour activity. Profile-based user behaviour was created by executing a user-profile that synthetically generates at random synchronized times. The dataset came with labelled traffic that could assist the researcher for testing, comparison, and evaluation purposes. The datasets is available at https://www.unb.ca/cic/datasets/ids.html to download. 
+
+
 - dataset preprocessing
+
+  - The original datasets contain the 7 days packet capture file in pcap format and also provide the label data in xml format with information of each flow and their tag name. The tag contains whether it is normal or attack information.
+  - Therefore to generate the datasets with associated labeling, we need to first convert the single pacp file of each day to multiple pcap file based on flows. 
+  - The conversion was done using a script presented in ……….
+  - Each flow pcap file name contains five fields of information. They are source IP, destination IP, source port, destination port and protocol. 
+  - Based on this information we match each flow data with provided information and split all the match records into normal and attack groups for each day. 
+  - Read all the flow based pcap files and store raw bytes as text using … script
+  - Read all the text files and did preprocessing using …. Script and store as a csv file.
+
 
 ### data analysis
 
@@ -31,6 +45,11 @@ This page presents an end-to-end network intrusion detector based on HAST-IDS mo
 - loss function
 
 # References
+1. Wang, W., Sheng, Y., Wang, J., Zeng, X., Ye, X., Huang, Y., & Zhu, M. (2017). HAST-IDS: Learning hierarchical spatial-temporal features using deep neural networks to improve intrusion detection. IEEE Access, 6, 1792-1806.
+
+2. Ring, M., Wunderlich, S., Scheuring, D., Landes, D., & Hotho, A. (2019). A survey of network-based intrusion detection data sets. Computers & Security, 86, 147-167.
+
+3. Kamarudin, M. H., Maple, C., Watson, T., & Safa, N. S. (2017). A new unified intrusion anomaly detection in identifying unseen web attacks. Security and Communication Networks, 2017.
 
 # network_traffice_detection
 
