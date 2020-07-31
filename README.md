@@ -125,6 +125,7 @@ The loss function used in the skip gram model of word2vec is Negative Sampling L
 The model build for Intrusion Detection is as given below. Here the embedding_model is the pretaind word2vec model.
 
 ''' 
+
 class lstm_block(nn.Module):
 
     def __init__(self, embedding_model, in_channels=1000, hidden_dim=512, hidden_dim2=256, num_payers=2, out_channels=4):
