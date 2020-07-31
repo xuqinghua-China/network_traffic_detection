@@ -1,1 +1,2 @@
-.
+- First train the word2vec model 
+- Run the experiment for classification using pretrained model
