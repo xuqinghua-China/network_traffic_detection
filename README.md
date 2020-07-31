@@ -47,7 +47,7 @@ intrusion detection data set with normal as well as malicious network behavior. 
   - Each flow pcap file name contains five fields of information. They are source IP, destination IP, source port, destination port and protocol. 
   - Based on this information we match each flow data with provided information and split all the match records into normal and attack groups for each day. 
   - Read all the flow based pcap files and store raw bytes as text using script presented in preprocessing folder.
-  - Read all the text files and did preprocessing using …. Script and store as a csv file.
+  - Read all the text files and did preprocessing using script and store as a csv file.
 
 
 ### Data Analysis
@@ -91,12 +91,12 @@ The word2vec embedding method is used for pretraining the vocabulary. Here we ha
 
   - Load the raw bytes datasets with associated classification types
   - Some of the raw bytes are very large in size, therefore we have discarded those rows which size is higher than 50, 000.
-  - Split all the byes to each each word and count the unique words and their frequency
+  - Split all the byes to each word and count the unique words and their frequency
   - There are 65786 unique words in the datasets
-  - As our plan is to apply word embedding before the LSTM model, the 65786 vocab size is very big. Therefore we decided to keep only the top most used 10,000 vocab. 
+  - As We plan is to apply word embedding before the LSTM model, the 65786 vocab size is very big. Therefore we decided to keep only the top most used 10,000 vocab. 
   - Before training the word2vec model, we first preprocess the data so that only selected vocab will be keeped and other vocab(bytes) are replaced with ‘unknown’ word. 
   - Most of the rows have length around 1000 while some are 50,000. Therefore for these experiments we keep only 1200 length as inputs to model for each row. The rows less than 1200 added ‘0’ as padding and those which are larger trim to size of 1200.
-  - Then convert all rows text data into list of lists.
+  - Then convert all rows text data into a list of lists.
   - Define the word2vec model parameters for training. The parameters used for processing are as follows
     - min_count=1,
     - window=3,
@@ -116,16 +116,15 @@ The word2vec embedding method is used for pretraining the vocabulary. Here we ha
 
 - loss function:
 
-The loss function used in the skip gram model of word2vec is Negative Sampling Loss. After training the model for 20 epoch, The model return the loss of the last epoch is 0. The pretained model and script are presented in word2vec folder.
+The loss function used in the skip gram model of word2vec is Negative Sampling Loss. After training the model for 20 epoch, The model return the loss of the last epoch is 0. The pretained model and script are presented in word2vec folder. The few shot-lerning and zero-shot learning model is work on progress. 
 
 ### Intrusion Detection Model
 
 - Model
 
-The model build for Intrusion Detection is as given below. Here the embedding_model is the pretaind word2vec model.
+The model build for Intrusion Detection is as given below. Here the embedding_model is the pretaind word2vec model. The input to the model is list of byte words
 
 ```
-
 class lstm_block(nn.Module):
 
     def __init__(self, embedding_model, in_channels=1000, hidden_dim=512, hidden_dim2=256, num_payers=2, out_channels=4):
@@ -156,7 +155,7 @@ class lstm_block(nn.Module):
 ```
 - loss function
 
-As the problem is multi level classification, We have used cross entropy loss function. The 
+As the problem is multi level classification, We have used cross entropy loss function. The result will update after experimets is done. 
 
 # References
 1. Wang, W., Sheng, Y., Wang, J., Zeng, X., Ye, X., Huang, Y., & Zhu, M. (2017). HAST-IDS: Learning hierarchical spatial-temporal features using deep neural networks to improve intrusion detection. IEEE Access, 6, 1792-1806.
