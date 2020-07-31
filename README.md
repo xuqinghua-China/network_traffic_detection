@@ -1,3 +1,37 @@
+# Introduction
+
+This page presents an end-to-end network intrusion detector based on HAST-IDS model. Unlike HAST-IDS which uses one-hot vectors as input, our model uses pretrained embeddings, taking advantage of the large amount of unlabeled data. Experiments on ISCX 2012 dataset show competitive results. Additionally, we argue that our model is superior to the state-of-art model when dealing with few-shot or zero-shot attacks.(work in progress)
+- input
+- output
+- example of this task
+
+# Results
+- results of intrustion detection
+- results of pretraining(latest loss/loss curve)
+
+# Details
+
+### Dataset(ISCX 2012)
+
+- dataset introduction
+- dataset preprocessing
+
+### data analysis
+
+- feature selection
+
+### Pretraining
+
+- model
+- loss function
+
+### Intrusion Detection Model
+
+- model
+- loss function
+
+# References
+
 # network_traffice_detection
 
 In the case of Intrusion Detection, NSL-KDD is consider as the standard datasets and have been used by many reseacher for their reseach work. 
