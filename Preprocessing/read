@@ -1,4 +1,5 @@
 - Use these script to convert pcap file to text based csv file to be used for model.
 
-To use this script, first you need to have seperated pcap file in each class. We make the seperate four folders with flow related to that class. Like for brute force 
-attack, all the are store in side BFSSH, similarly for others. The converted files are store as text file in seperate folder like converted-BFSSH. 
+To use this script, first you need to have seperated pcap file in each class. We make the seperate four folders with flow related to that class.
+Like for brute force attack, all the are store in side BFSSH, similarly for others. 
+The converted files are store as text file in seperate folder like converted-BFSSH. 
