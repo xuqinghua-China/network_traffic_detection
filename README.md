@@ -2,7 +2,15 @@
 
 This page presents an end-to-end network intrusion detector based on HAST-IDS model. Unlike HAST-IDS which uses one-hot vectors as input, our model uses pretrained embeddings, taking advantage of the large amount of unlabeled data. Experiments on ISCX 2012 dataset show competitive results. Additionally, we argue that our model is superior to the state-of-art model when dealing with few-shot or zero-shot attacks.(work in progress)
 - input
+
+One example of input bytes is as follows:
+
+'4500 0034 0000 4000 4006 fd7c c0a8 057a 83ca f35a 0016 1b1e a0fc abfa 2d03 c045 8012 16d0 c575 0000 0204 05b4 0101 0402 0103 0307 4500 0028 b2ee 4000 4006 4a9a c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 2d03 c045 5011 002e 1ce9 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 0000 0000 5004 0000 0a6d 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000'
+
 - output
+
+The output will be classification of traffic as normal or BFSSH or HttpDoS or DDoS or Network Inflit 
+
 - example of this task
 
 # Results
