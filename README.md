@@ -120,8 +120,42 @@ The loss function used in the skip gram model of word2vec is Negative Sampling L
 
 ### Intrusion Detection Model
 
-- model
+- Model
+
+The model build for Intrusion Detection is as given below. Here the embedding_model is the pretaind word2vec model.
+
+''' 
+class lstm_block(nn.Module):
+
+    def __init__(self, embedding_model, in_channels=1000, hidden_dim=512, hidden_dim2=256, num_payers=2, out_channels=4):
+        super(lstm_block, self).__init__()
+
+        self.embds = embedding_model
+
+        self.lstm1 = nn.LSTM(in_channels, hidden_dim, num_payers, batch_first=True, dropout=0.4)
+        self.lstm2 = nn.LSTM(hidden_dim, hidden_dim2, num_payers, batch_first=True, dropout=0.4)
+
+        self.fc1 = nn.Linear(hidden_dim2, out_channels)
+
+    def forward(self, x):
+
+        out = self.embds[x]
+        
+        out = torch.FloatTensor(out)
+        out = out.view(1,300, -1)
+        
+        out, hn = self.lstm1(out)
+        out, hn2 = self.lstm2(out)
+
+        out = out[:, -1, :]
+        out = out.view(1, -1)
+        out = self.fc1(out)
+        
+        return out
+'''
 - loss function
+
+As the problem is multi level classification, We have used cross entropy loss function. The 
 
 # References
 1. Wang, W., Sheng, Y., Wang, J., Zeng, X., Ye, X., Huang, Y., & Zhu, M. (2017). HAST-IDS: Learning hierarchical spatial-temporal features using deep neural networks to improve intrusion detection. IEEE Access, 6, 1792-1806.
