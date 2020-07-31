@@ -14,20 +14,32 @@ The output will be classification of traffic as normal or BFSSH or HttpDoS or DD
 - example of this task
 
 # Results
-- results of intrustion detection
-- results of pretraining(latest loss/loss curve)
+- Results of intrustion detection
+
+NSL-KDD datasets
+  - We have implemented CNN, RNN, GRU and LSTM model on this datasets
+  - CNN is giving 98.10 percentage of accuracy while other model are outporforming more than 99 percentage of accuracy
+  - All the codes are updated
+  
+ISCX 2012:
+  - Using image as a input datasets, the CNN model provides around 95 percentage of accuracy.
+  <img src="./CNN.png">
+  
+  - Using raw bytes text as input datasets and word2vec skip gram model as embedding layer with two layers of LSTM and one linear layer. Experiment is going on.. 
+  
+- Results of pretraining(latest loss/loss curve)
 
 # Details
 
 ### Dataset(ISCX 2012)
 
-- dataset introduction
+- Dataset introduction
 
 The ISCX data set was created in 2012 by capturing traffic in an emulated network environment over one week. The authors used a dynamic approach to generate an
 intrusion detection data set with normal as well as malicious network behavior. The 7-day simulation dataset consists of 3 days of attack-free traffic and 4 days of mixed benign and malign traffic. This datasets contins four types of attack, they are HTTP Denial of Service (DoS), Infiltrating the network from inside, Distributed Denial of Service (DDoS), and Brute Force SSH. The simulation was created to simulate and mimic user behaviour activity. Profile-based user behaviour was created by executing a user-profile that synthetically generates at random synchronized times. The dataset came with labelled traffic that could assist the researcher for testing, comparison, and evaluation purposes. The datasets is available at https://www.unb.ca/cic/datasets/ids.html to download. 
 
 
-- dataset preprocessing
+- Dataset preprocessing
 
   - The original datasets contain the 7 days packet capture file in pcap format and also provide the label data in xml format with information of each flow and their tag name. The tag contains whether it is normal or attack information.
   - Therefore to generate the datasets with associated labeling, we need to first convert the single pacp file of each day to multiple pcap file based on flows. 
@@ -38,9 +50,9 @@ intrusion detection data set with normal as well as malicious network behavior. 
   - Read all the text files and did preprocessing using …. Script and store as a csv file.
 
 
-### data analysis
+### Data Analysis
 
-- feature selection
+- Feature selection
 
 The raw packet datasets contains many different features. But all of the fetures are not equally important for classification of problem. Therefore to check which of the features are plying very important role in classification, we have used NSL-KDD labelled datasets. The NSL-KDD datasets have 41 features but all of the features are not equally important for the prediction. Therefore we have also done some feature engineering jobs which are uploaded under Feature_Engineering folder. We tried different apporach for feature learning. First we performed constant, quasi constant features elimination and than perform feature selection based on corelation coefficient. We have also tried feature selection based on sklearn feature importance method. Instead of selecting the features based on one machine learning feature importnace, we have calculated the feature importance of various model and than compute the average feature importance. We also tried permutation and recursive feature importance technique as well. We plan to use those feature in raw traffic data later.
 
@@ -73,7 +85,7 @@ The most valuable top 25 features with importance score suggested by experiments
 
 ### Pretraining
 
-- model
+- Model
 
 The word2vec embedding method is used for pretraining the vocabulary. Here we have used the skip gram model with negative sampling for training the most popular voculabory. All the steps are information are provied as follows. 
 
