@@ -5,24 +5,23 @@ This page presents an end-to-end network intrusion detector based on HAST-IDS mo
 
 One example of input bytes is as follows:
 
-'4500 0034 0000 4000 4006 fd7c c0a8 057a 83ca f35a 0016 1b1e a0fc abfa 2d03 c045 8012 16d0 c575 0000 0204 05b4 0101 0402 0103 0307 4500 0028 b2ee 4000 4006 4a9a c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 2d03 c045 5011 002e 1ce9 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 0000 0000 5004 0000 0a6d 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000'
+```4500 0034 0000 4000 4006 fd7c c0a8 057a 83ca f35a 0016 1b1e a0fc abfa 2d03 c045 8012 16d0 c575 0000 0204 05b4 0101 0402 0103 0307 4500 0028 b2ee 4000 4006 4a9a c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 2d03 c045 5011 002e 1ce9 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfb 0000 0000 5004 0000 0a6d 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000 4500 0028 0000 4000 4006 fd88 c0a8 057a 83ca f35a 0016 1b1e a0fc abfc 0000 0000 5004 0000 0a6c 0000 0000 0000 0000```
 
 - output
 
 The output will be classification of traffic as normal or BFSSH or HttpDoS or DDoS or Network Inflit 
 
-- example of this task
 
 # Results
 - Results of intrustion detection
 
 NSL-KDD datasets
   - We have implemented CNN, RNN, GRU and LSTM model on this datasets
-  - CNN is giving 98.10 percentage of accuracy while other model are outporforming more than 99 percentage of accuracy
+  - CNN is giving $98.10%$ of accuracy while other model are outporforming more than $99%$ of accuracy
   - All the codes are updated
   
 ISCX 2012:
-  - Using image as a input datasets, the CNN model provides around 95 percentage of accuracy.
+  - Using image as a input datasets, the CNN model provides around $95%$ of accuracy.
   <img src="./CNN.png">
   
   - Using raw bytes text as input datasets and word2vec skip gram model as embedding layer with two layers of LSTM and one linear layer. Experiment is going on.. 
